@@ -1,0 +1,22 @@
+{
+  "name": "lit-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "compile": "tsc src/hello-world.ts",
+    "dev": "vite",
+    "reinstall": "rm -rf node_modules package-lock.json && npm install",
+    "server": "node server.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.6",
+    "@lit-labs/ssr": "^3.3.1",
+    "hono": "^4.10.5",
+    "lit": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.7",
+    "vite": "^5.4.9"
+  }
+}
