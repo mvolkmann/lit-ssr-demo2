@@ -1,13 +1,14 @@
 {
   "name": "lit-app",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "compile": "tsc",
+    "build": "tsc",
+    "clean": "rm -rf dist",
     "dev": "vite",
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
-    "server": "node server.ts"
+    "server": "node dist/src/server.js"
   },
   "dependencies": {
     "@hono/node-server": "^1.19.6",
