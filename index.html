@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lit App Lit Element Simple Starter Kit</title>
-    <script type="module" src="/dist/src/hello-world.js"></script>
+    <title>Lit SSR Demo</title>
+    <script type="module" src="../dist/src/hello-world.js"></script>
     <script type="module">
       const button = document.querySelector("button");
       button.addEventListener("click", async () => {
         const res = await fetch("http://localhost:3000/greet?name=Mark");
         const html = await res.text();
+
+        // With this approach, Chrome complains that
+        // "Found declarative shadowrootmode attribute on a template,
+        // but declarative Shadow DOM is not being parsed.",
+        // but it still works.
         button.insertAdjacentHTML("afterend", html);
+
+        // With this approach, each custom element is rendered twice.
+        //const greet = document.querySelector("#greet");
+        //greet.setHTMLUnsafe(html);
       });
     </script>
   </head>
@@ -21,5 +27,6 @@
     <hello-world name="Mark"></hello-world>
 
     <button>Greet</button>
+    <div id="greet"></div>
   </body>
 </html>
