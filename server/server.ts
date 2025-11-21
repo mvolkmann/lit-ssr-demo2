@@ -7,11 +7,11 @@ import { html } from "lit";
 import { render } from "@lit-labs/ssr";
 import { collectResult } from "@lit-labs/ssr/lib/render-result.js";
 
-import "./hello-world.js";
+import "../components/hello-world.js";
 
 const app = new Hono();
 
-app.use("/*", serveStatic({ root: "." }));
+app.use("/*", serveStatic({ root: "./public" }));
 app.use(cors());
 
 // This returns a server-side rendered Lit component.
