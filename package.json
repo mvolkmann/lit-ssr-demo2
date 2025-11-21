@@ -4,9 +4,9 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "clean": "rm -rf dist",
-    "dev": "vite",
+    "clean": "rm -rf dist tsc-out",
+    "compile": "tsc",
+    "build": "vite build",
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
     "server": "node dist/src/server.js"
   },

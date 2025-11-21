@@ -1,7 +1,7 @@
 import { type Context, Hono } from "hono";
 import { cors } from "hono/cors";
 import { serve } from "@hono/node-server";
-//import { serveStatic } from "@hono/node-server/serve-static";
+import { serveStatic } from "@hono/node-server/serve-static";
 
 import { html } from "lit";
 import { render } from "@lit-labs/ssr";
@@ -11,7 +11,7 @@ import "./hello-world.js";
 
 const app = new Hono();
 
-//app.use("/*", serveStatic({ root: "." }));
+app.use("/*", serveStatic({ root: "." }));
 app.use(cors());
 
 // This returns a server-side rendered Lit component.
